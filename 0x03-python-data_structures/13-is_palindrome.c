@@ -8,7 +8,7 @@ int is_palindrome(listint_t **head)
 {
 	listint_t *tmp = *head;
 	unsigned int count = 0, i = 0;
-	int list[100000];
+	int list[99999];
 
 	if (head == NULL)
 		return (0);
@@ -31,8 +31,8 @@ int is_palindrome(listint_t **head)
 	}
 	for (i = 0; i <= count / 2; i++)
 	{
-		if (list[i] == list[count - i - 1])
-			return (1);
+		if (list[i] != list[count - i - 1])
+			return (0);
 	}
-	return (0);
+	return (1);
 }
