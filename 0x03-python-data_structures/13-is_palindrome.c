@@ -24,7 +24,6 @@ int is_palindrome(listint_t **head)
 		return (1);
 
 	tmp = *head;
-	
 	while (tmp)
 	{
 		list[i++] = tmp->n;
@@ -35,6 +34,5 @@ int is_palindrome(listint_t **head)
 		if (list[i] == list[count - i - 1])
 			return (1);
 	}
-	
 	return (0);
 }
