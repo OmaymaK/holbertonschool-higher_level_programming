@@ -1,6 +1,12 @@
 #!/usr/bin/python3
+"""task 2"""
+
+
 class Square:
+    """class square that defines a square"""
+
     def __init__(self, size=0):
+        """initialsation"""
         if type(size) is not int:
             raise TypeError("size must be an integer")
         if size < 0:

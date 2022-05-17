@@ -8,11 +8,11 @@ class Square:
     def __init__(self, size=0):
         """inisialising"""
         self.__size = size
-    
+
     def area(self):
         """getting size square"""
         return self.__size ** 2
-    
+
     @property
     def size(self):
         """do size"""
