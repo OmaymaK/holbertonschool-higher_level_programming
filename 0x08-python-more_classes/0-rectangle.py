@@ -1,3 +1,5 @@
 #!/usr/bin/python3
+"""task 0"""
 class Rectangle:
-        pass
+    """ class that defines a rectangle"""    
+    pass
