@@ -2,7 +2,7 @@
 """Task 7"""
 
 
-class BaseGeometry:
+class BaseGeometry():
     """class"""
 
     def area(self):
