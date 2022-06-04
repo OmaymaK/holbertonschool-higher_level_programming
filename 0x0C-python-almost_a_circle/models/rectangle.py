@@ -16,8 +16,8 @@ class Rectangle(Base):
     def __str__(self):
         """ rectangle's info """
         return "[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}"\
-                .format(self.id, self.x, self.y, self.width, self.height)
-    
+            .format(self.id, self.x, self.y, self.width, self.height)
+
     @property
     def width(self):
         """ width property """
@@ -84,7 +84,11 @@ class Rectangle(Base):
 
     def display(self):
         """ rectangle representation using # character """
+        for a in range(self.y):
+            print()
         for i in range(self.height):
+            for k in range(self.x):
+                print(" ", end="")
             for j in range(self.width):
                 print("#", end="")
             print()
