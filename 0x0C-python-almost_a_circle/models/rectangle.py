@@ -102,3 +102,7 @@ class Rectangle(Base):
             for j in range(self.width):
                 print("#", end="")
             print()
+
+    def to_dictionary(self):
+        return {'x': self.x, 'y': self.y, 'id': self.id,
+                'height': self.height, 'width': self.width}
