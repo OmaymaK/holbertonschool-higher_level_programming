@@ -18,11 +18,15 @@ class Rectangle(Base):
         return "[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}"\
             .format(self.id, self.x, self.y, self.width, self.height)
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """ assign an argument for each attribute """
         attrb = ["id", "width", "height", "x", "y"]
-        for i in range(len(args)):
-            setattr(self, attrb[i], args[i])
+        if (args):
+            for i in range(len(args)):
+                setattr(self, attrb[i], args[i])
+        else:
+            for j in kwargs:
+                setattr(self, j, kwargs[j])
 
     @property
     def width(self):
