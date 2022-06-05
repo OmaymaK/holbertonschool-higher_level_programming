@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ Task 1"""
 import json
+import os
 
 
 class Base:
@@ -51,4 +52,16 @@ class Base:
         elif cls.__name__ == "Square":
             inst = cls(1)
         inst.update(**dictionary)
+        return inst
+
+    @classmethod
+    def load_from_file(cls):
+        """ loads a list of instances from a json file """
+        inst = []
+        file = cls.__name__ + ".json"
+        if os.path.isfile(file):
+            with open(file, 'r') as f:
+                res = cls.from_json_string(f.read())
+                for i in res:
+                    inst.append(cls.create(**i))
         return inst
