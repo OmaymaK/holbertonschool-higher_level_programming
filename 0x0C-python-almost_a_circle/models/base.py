@@ -16,8 +16,16 @@ class Base:
             self.id = __class__.__nb_objects
 
     @staticmethod
+    def from_json_string(json_string):
+        """ truning json to list """
+        if json_string is None or json_string == "":
+            return []
+        else:
+            return json.loads(json_string)
+
+    @staticmethod
     def to_json_string(list_dictionaries):
-        """ JSON representation """
+        """ JSON representation of dict"""
         if list_dictionaries is None:
             return []
         else:
@@ -25,6 +33,7 @@ class Base:
 
     @classmethod
     def save_to_file(cls, list_objs):
+        """ JSON string representation of list_objs """
         inst = []
         with open(cls.__name__ + ".json", mode='w', encoding='utf-8') as f:
             if list_objs is None:
