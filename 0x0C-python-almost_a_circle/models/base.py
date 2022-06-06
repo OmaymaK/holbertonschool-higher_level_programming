@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """ Task 1"""
 import json
-import os
+from os import path
+import csv
 
 
 class Base:
@@ -65,3 +66,33 @@ class Base:
                 for i in res:
                     inst.append(cls.create(**i))
         return inst
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+        writes the CSV string representation of list_objs to a file
+        """
+        with open(cls.__name__ + ".csv", "w", newline='') as csvfile:
+            if cls.__name__ == "Rectangle":
+                fld = ['id', 'width', 'height', 'x', 'y']
+            elif cls.__name__ == "Square":
+                fld = ['id', 'size', 'x', 'y']
+            writer = csv.DictWriter(csvfile, fieldnames=fld)
+            writer.writeheader()
+            if list_objs is not None:
+                for i in list_objs:
+                    writer.writerow(i.to_dictionary())
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """ load from file csv """
+        if path.exists(cls.__name__ + ".csv") is False:
+            return []
+        with open(cls.__name__ + ".csv", "r", newline='') as csvfile:
+            fli = []
+            reader = csv.DictReader(csvfile)
+            for i in reader:
+                for key, value in i.items():
+                    i[key] = int(value)
+                fli.append(cls.create(**i))
+        return fli
