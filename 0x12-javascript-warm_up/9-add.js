@@ -1,4 +1,4 @@
-#!/usr/local/bin/node
+#!/usr/bin/node
 const { argv } = require('process');
 
 if (isNaN(argv[2]) && isNaN(argv[3]) && !argv[2] && !argv[3]) {
