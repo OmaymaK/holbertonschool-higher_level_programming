@@ -2,7 +2,7 @@
 const { argv } = require('process');
 
 if ((isNaN(argv[2]) && !argv[2]) || (parseInt(argv[2]) === 0)) {
-  console.log('1');
+  console.log(1);
 } else {
   const num = parseInt(argv[2]);
   factorial(num, 1);
