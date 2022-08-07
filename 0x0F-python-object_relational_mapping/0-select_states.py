@@ -10,6 +10,6 @@ if __name__ == "__main__":
     curs.execute("SELECT id, name FROM states ORDER BY id;")
     for t in curs.fetchall():
         print(t)
- 
+
     curs.close()
     db.close()
